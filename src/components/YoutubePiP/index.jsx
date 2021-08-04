@@ -1,8 +1,6 @@
 import { useLocation } from "@reach/router"
 import React from "react"
 
-// const videoWrapper = document.getElementById("video-wrapper")
-
 const videoDiv = {
   position: "relative",
   paddingBottom: "56.25%" /* 16:9 */,
