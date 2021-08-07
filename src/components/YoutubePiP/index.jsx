@@ -1,5 +1,5 @@
 import { useLocation } from "@reach/router"
-import React from "react"
+import React, { useState, useEffect } from "react"
 
 const videoDiv = {
   position: "relative",
@@ -16,8 +16,22 @@ const videoPlayer = {
   height: "100%",
 }
 
+const LoadingSpinner = () => (
+  <div className="loadingio-eclipse">
+    <div className="ldio-rpinwye8j0b">
+      <div></div>
+    </div>
+  </div>
+)
+
 const YoutubePiP = () => {
   const location = useLocation()
+
+  const [spinner, setSpinner] = useState(true)
+
+  useEffect(() => {
+    setTimeout(() => setSpinner(false), 1000)
+  }, [])
 
   const videoParameter = new URLSearchParams(location.search).get("yt")
 
@@ -52,17 +66,26 @@ const YoutubePiP = () => {
   const videoId = getVideoId()
 
   return (
-    <div style={videoDiv}>
-      <iframe
-        style={videoPlayer}
-        title='Youtube Video'
-        width='560'
-        height='315'
-        src={`https://www.youtube.com/embed/${videoId}`}
-        frameBorder='0'
-        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-        allowFullScreen
-      />
+    <div className="text-center text-base mx-auto pt-4 dark:bg-gray-800 dark:text-white min-h-screen">
+      {!videoParameter ? (
+        <div className="loading-spinner">
+          <p>無有效的YouTube網址</p>
+          {spinner && <LoadingSpinner />}
+        </div>
+      ) : (
+        <div style={videoDiv}>
+          <iframe
+            style={videoPlayer}
+            title="Youtube Video"
+            width="560"
+            height="315"
+            src={`https://www.youtube.com/embed/${videoId}`}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
+      )}
     </div>
   )
 }
