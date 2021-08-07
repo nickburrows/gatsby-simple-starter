@@ -1,21 +1,6 @@
 import { useLocation } from "@reach/router"
 import React, { useState, useEffect } from "react"
 
-const videoDiv = {
-  position: "relative",
-  paddingBottom: "56.25%" /* 16:9 */,
-  paddingTop: "25px",
-  height: 0,
-}
-
-const videoPlayer = {
-  position: "absolute",
-  top: 0,
-  left: 0,
-  width: "100%",
-  height: "100%",
-}
-
 const LoadingSpinner = () => (
   <div className="loadingio-eclipse">
     <div className="ldio-rpinwye8j0b">
@@ -73,9 +58,8 @@ const YoutubePiP = () => {
           {spinner && <LoadingSpinner />}
         </div>
       ) : (
-        <div style={videoDiv}>
+        <div className="video-player">
           <iframe
-            style={videoPlayer}
             title="Youtube Video"
             width="560"
             height="315"
