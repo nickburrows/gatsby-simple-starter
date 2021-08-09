@@ -4,12 +4,13 @@ import { MenuIcon, XIcon } from "@heroicons/react/outline"
 import { StaticImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
 import ThemeToggle from "../ThemeToggle"
+// import HeroImg from "../../images/gatsby-astronaut.png"
 
 const navigation = [
-  { name: "Product", href: "#" },
-  { name: "Features", href: "#" },
-  { name: "Marketplace", href: "#" },
-  { name: "Company", href: "#" },
+  { name: "Page 2", href: "/page-2/" },
+  { name: "YT_PiP", href: "/pip/" },
+  { name: "Marketplace", href: "/" },
+  { name: "Company", href: "/" },
 ]
 
 const HeroInfo = ({ siteTitle }) => {
@@ -40,6 +41,7 @@ const HeroInfo = ({ siteTitle }) => {
                         <Link to="/">
                           <span className="sr-only">{siteTitle}</span>
                           <img
+                            alt="gatsby-icon"
                             className="h-8 w-auto sm:h-10"
                             src="https://www.gatsbyjs.com/Gatsby-Monogram.svg"
                           />
@@ -57,20 +59,20 @@ const HeroInfo = ({ siteTitle }) => {
                     </div>
                     <div className="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
                       {navigation.map(item => (
-                        <a
+                        <Link
                           key={item.name}
-                          href={item.href}
+                          to={item.href}
                           className="font-medium text-gray-500 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-200"
                         >
                           {item.name}
-                        </a>
+                        </Link>
                       ))}
-                      <a
-                        href="#"
+                      <button
+                        tyoe="button"
                         className="font-medium text-indigo-600 dark:text-blue-600 dark:hover:text-blue-500 hover:text-indigo-500"
                       >
                         Log in
-                      </a>
+                      </button>
                     </div>
                   </nav>
                 </div>
@@ -96,7 +98,7 @@ const HeroInfo = ({ siteTitle }) => {
                           <img
                             className="h-8 w-auto"
                             src="https://www.gatsbyjs.com/Gatsby-Monogram.svg"
-                            alt=""
+                            alt="mobile-menu-gatsby-logo"
                           />
                         </div>
                         <div className="-mr-2">
@@ -108,21 +110,21 @@ const HeroInfo = ({ siteTitle }) => {
                       </div>
                       <div className="px-2 pt-2 pb-3 space-y-1">
                         {navigation.map(item => (
-                          <a
+                          <Link
                             key={item.name}
-                            href={item.href}
+                            to={item.href}
                             className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-500 dark:hover:text-gray-300"
                           >
                             {item.name}
-                          </a>
+                          </Link>
                         ))}
                       </div>
-                      <a
-                        href="#"
+                      <button
+                        type="button"
                         className="block w-full px-5 py-3 text-center font-medium text-indigo-600 dark:text-blue-600 dark:hover:text-blue-500 bg-gray-50 hover:bg-gray-100"
                       >
                         Log in
-                      </a>
+                      </button>
                     </div>
                   </Popover.Panel>
                 </Transition>
@@ -146,7 +148,7 @@ const HeroInfo = ({ siteTitle }) => {
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <div className="rounded-md shadow">
                   <a
-                    href="#"
+                    href="https://tailwindcss.com/docs"
                     className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 dark:bg-blue-600 dark:hover:bg-blue-700 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
                   >
                     Get started
@@ -154,7 +156,7 @@ const HeroInfo = ({ siteTitle }) => {
                 </div>
                 <div className="mt-3 sm:mt-0 sm:ml-3">
                   <a
-                    href="#"
+                    href="https://play.tailwindcss.com/"
                     className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 dark:text-blue-700 bg-indigo-100 dark:bg-blue-100 dark:hover:bg-blue-200 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10"
                   >
                     Live demo
@@ -165,19 +167,19 @@ const HeroInfo = ({ siteTitle }) => {
           </main>
         </div>
       </div>
-      <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+      <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 dark:bg-white">
         {/* <img
           className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
-          src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
+          src="../../images/gatsby-astronaut.png"
           alt=""
         /> */}
         <StaticImage
-          src="../../images/gatsby-astronaut.png"
+          src="../../images/SVG/undraw_game_world.svg"
+          alt="A Gatsby astronaut"
+          className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
           width={800}
           quality={95}
           formats={["AUTO", "WEBP", "AVIF"]}
-          alt="A Gatsby astronaut"
-          style={{ marginBottom: `1.45rem` }}
         />
       </div>
     </div>
