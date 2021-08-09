@@ -11,3 +11,7 @@ body.light {
   --primary: white;
   --text-main: #111827;
 }
+
+img {
+  margin: 0;
+}

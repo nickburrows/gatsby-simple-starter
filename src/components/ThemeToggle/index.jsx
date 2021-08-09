@@ -7,7 +7,7 @@ export default function ThemeToggle() {
       {({ theme, toggleTheme }) => {
         if (theme == null) return null
         return (
-          <label className="cursor-pointer">
+          <label className="cursor-pointer group-hover:bg-gray-500">
             <input
               className="hidden"
               type="checkbox"
@@ -15,15 +15,15 @@ export default function ThemeToggle() {
               checked={theme === "dark"}
             />
             {theme === "dark" ? (
-              <div className="transition duration-500 ease-in-out origin-center transform rotate-0">
+              <div className="transition duration-500 ease-in origin-center transform scale-90 -rotate-180">
                 <svg
                   className="w-6 h-6 text-yellow-400 fill-current stroke-current stroke-2"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   viewBox="0 0 24 24"
                 >
                   <mask id="mymask1">
@@ -43,13 +43,13 @@ export default function ThemeToggle() {
                 </svg>
               </div>
             ) : (
-              <div className="transition duration-500 ease-in-out origin-center transform -rotate-90">
+              <div className="transition duration-500 ease-out origin-center transform scale-100 -rotate-90">
                 <svg
                   className="w-6 h-6 stroke-2"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   transform="rotate(40)"
                   viewBox="0 0 24 24"
                 >

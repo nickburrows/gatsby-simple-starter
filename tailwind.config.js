@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors')
+
 module.exports = {
   mode: 'jit',
   purge:  [
@@ -10,12 +12,24 @@ module.exports = {
         colors: {
           primary: 'var(--primary)',
           'text-main': 'var(--text-main)',
+          transparent: 'transparent',
+          current: 'currentColor',
+          cyan: colors.cyan,
+          teal: colors.teal,
+          dark: colors.trueGray,
+          red: colors.red,
+          sky: colors.sky,
+          amber: colors.amber,
         }
       },
   },
   variants: {
     extend: {
-      backgroundColor: ['responsive', 'light', 'dark']
+      borderColor: ['responsive', 'dark', 'group-hover', 'hover'],
+      borderOpacity: ['responsive', 'dark', 'group-hover', 'hover'],
+      backgroundColor: ['responsive', 'light', 'dark'],
+      fill: ['hover', 'focus'],
+      stroke: ['hover', 'focus'],
     },
   },
   plugins: [

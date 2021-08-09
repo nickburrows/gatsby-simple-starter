@@ -12,7 +12,6 @@ const LoadingSpinner = () => (
 const YoutubePiP = () => {
   const location = useLocation()
 
-  const [spinner, setSpinner] = useState(true)
   const [isLoading, setIsLoading] = useState(true)
   // const [videoShow, setVideoShow] = useState(false)
 
@@ -53,15 +52,6 @@ const YoutubePiP = () => {
     return () => clearTimeout(loadingVideo)
   })
 
-  const ytPiP = () => {
-    let videoPiP = document.querySelector('video');
-    videoPiP.addEventListener('webkitpresentationmodechanged', (e)=>e.stopPropagation(), true);
-    
-    setTimeout(()=>videoPiP.webkitSetPresentationMode('picture-in-picture'), 3000);
-    
-    completion()
-  }
-
   console.log(videoParameter)
 
   return (
@@ -86,7 +76,7 @@ const YoutubePiP = () => {
           </div>
         </>
       )}
-      {videoParameter == !null && <p>無有效的YouTube網址</p>}
+      {videoParameter == null && <p>無有效的YouTube網址</p>}
     </div>
   )
 }

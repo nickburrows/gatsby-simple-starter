@@ -16,12 +16,12 @@ const Header = ({ siteTitle }) => (
         </div>
         <div className="hidden sm:block sm:ml-6">
           <div className="flex items-center justify-center space-x-4">
-            <div className="rounded-md bg-gray-200 dark:bg-gray-600 p-1 text-base font-semibold text-gray-400 hover:text-gray-700">
+            <div className="rounded-md bg-gray-200 hover:bg-gray-100 hover:border hover:border-gray-600 dark:hover:border-gray-500 dark:bg-gray-600 dark:hover:bg-gray-500 p-1 text-base font-semibold text-gray-400 group">
               <ThemeToggle />
             </div>
             <Link
               to="/"
-              className="text-base font-semibold text-gray-400 hover:underline hover:text-gray-700"
+              className="text-base font-semibold text-gray-400 hover:underline hover:text-gray-500"
             >
               Blog
             </Link>
