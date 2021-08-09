@@ -13,10 +13,8 @@ const YoutubePiP = () => {
   const location = useLocation()
 
   const [spinner, setSpinner] = useState(true)
-
-  useEffect(() => {
-    setTimeout(() => setSpinner(false), 1000)
-  }, [])
+  const [isLoading, setIsLoading] = useState(true)
+  // const [videoShow, setVideoShow] = useState(false)
 
   const videoParameter = new URLSearchParams(location.search).get("yt")
 
@@ -50,26 +48,45 @@ const YoutubePiP = () => {
 
   const videoId = getVideoId()
 
+  useEffect(() => {
+    const loadingVideo = setTimeout(() => setIsLoading(false), 3000)
+    return () => clearTimeout(loadingVideo)
+  })
+
+  const ytPiP = () => {
+    let videoPiP = document.querySelector('video');
+    videoPiP.addEventListener('webkitpresentationmodechanged', (e)=>e.stopPropagation(), true);
+    
+    setTimeout(()=>videoPiP.webkitSetPresentationMode('picture-in-picture'), 3000);
+    
+    completion()
+  }
+
+  console.log(videoParameter)
+
   return (
     <div className="text-center text-base mx-auto pt-4 dark:bg-gray-800 dark:text-white min-h-screen">
-      {!videoParameter ? (
-        <div className="loading-spinner">
-          <p>無有效的YouTube網址</p>
-          {spinner && <LoadingSpinner />}
-        </div>
-      ) : (
-        <div className="video-player">
-          <iframe
-            title="Youtube Video"
-            width="560"
-            height="315"
-            src={`https://www.youtube.com/embed/${videoId}`}
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
-        </div>
+      {videoParameter != null && (
+        <>
+          {isLoading && (
+            <div className="loading-spinner">
+              <LoadingSpinner />
+            </div>
+          )}
+          <div className="video-player">
+            <iframe
+              title="Youtube Video"
+              width="560"
+              height="315"
+              src={`https://www.youtube.com/embed/${videoId}`}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        </>
       )}
+      {videoParameter == !null && <p>無有效的YouTube網址</p>}
     </div>
   )
 }

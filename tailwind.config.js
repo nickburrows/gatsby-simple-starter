@@ -4,12 +4,21 @@ module.exports = {
     './public/**/*.html', 
     './src/**/*.{js,jsx,ts,tsx,vue}',
   ],
-  darkMode: "media", // or 'media' or 'class'
+  darkMode: 'class',
   theme: {
-    extend: {},
+      extend: {
+        colors: {
+          primary: 'var(--primary)',
+          'text-main': 'var(--text-main)',
+        }
+      },
   },
   variants: {
-    extend: {},
+    extend: {
+      backgroundColor: ['responsive', 'light', 'dark']
+    },
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss-prefers-color-scheme')(),
+  ],
 }

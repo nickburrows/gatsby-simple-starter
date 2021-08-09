@@ -7,6 +7,7 @@
   "dependencies": {
     "@reach/router": "^1.3.4",
     "gatsby": "^3.9.1",
+    "gatsby-plugin-dark-mode": "^1.1.2",
     "gatsby-plugin-gatsby-cloud": "^2.9.1",
     "gatsby-plugin-image": "^1.9.0",
     "gatsby-plugin-manifest": "^3.9.0",
@@ -18,7 +19,10 @@
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-helmet": "^6.1.0"
+    "react-helmet": "^6.1.0",
+    "react-spring": "^9.2.4",
+    "react-toggle-dark-mode": "^1.0.4",
+    "tailwindcss-prefers-color-scheme": "^0.1.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.3.1",
