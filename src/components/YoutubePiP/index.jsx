@@ -76,7 +76,6 @@ const YoutubePiP = () => {
           </div>
         </>
       )}
-      {videoParameter == null && <p>無有效的YouTube網址</p>}
     </div>
   )
 }

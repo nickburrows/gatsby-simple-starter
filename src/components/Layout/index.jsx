@@ -6,7 +6,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import HeroInfo from "../HeroInfo"
 // import "./layout.css"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, location }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
