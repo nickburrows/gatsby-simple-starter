@@ -2,7 +2,7 @@ import React from "react"
 
 function VideoWrapper({ videoId }) {
   return (
-    <div className="theme-dark bg-primary text-text-main min-h-screen">
+    <div id="video-wrapper" className="theme-dark bg-primary text-text-main">
       <p className="text-2xl text-center py-2 font-extrabold">
         Youtube PiP (Safari)
       </p>
