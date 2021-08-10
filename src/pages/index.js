@@ -5,11 +5,10 @@ import { DarkModeSwitch } from "react-toggle-dark-mode"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
-import {videoWrapper} from '../utils/videoWrapper'
-
 import Layout from "../components/Layout"
 import Seo from "../components/seo"
 import AnimatedIcon from "../components/AnimatedIcon"
+import VideoWrapper from "../components/VideoWrapper"
 
 const IndexPage = ({location}) => {
   // const location = useLocation()
@@ -56,8 +55,8 @@ const IndexPage = ({location}) => {
 
   return (
     <>
-      {urlQuery ? (
-        videoWrapper({videoId: `${videoId}`})
+      {videoId ? (
+        <VideoWrapper videoId={`${videoId}`} />
       ) : (
         <Layout>
           <Seo title="Home" />
