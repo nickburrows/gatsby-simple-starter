@@ -5,6 +5,8 @@ import { DarkModeSwitch } from "react-toggle-dark-mode"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
+import {videoWrapper} from '../utils/videoWrapper'
+
 import Layout from "../components/Layout"
 import Seo from "../components/seo"
 import AnimatedIcon from "../components/AnimatedIcon"
@@ -50,22 +52,12 @@ const IndexPage = ({location}) => {
 
   const videoId = getVideoId()
 
-  console.log(urlQuery)
+  
 
   return (
     <>
       {urlQuery ? (
-        <div className="video-player">
-        <iframe
-          title="Youtube Video"
-          width="560"
-          height="315"
-          src={`https://www.youtube.com/embed/${videoId}`}
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
-        </div>
+        videoWrapper({videoId: `${videoId}`})
       ) : (
         <Layout>
           <Seo title="Home" />
